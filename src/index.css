@@ -61,3 +61,21 @@ h1 {
   gap: 24px;
   margin: 0 100px;
 }
+
+input,
+button {
+  font-size: 26px;
+}
+
+.wpmDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.imgPokemon {
+  width: 512px;
+  height: 512px;
+  image-rendering: pixelated;
+}
