@@ -7,19 +7,18 @@ const WORDS = [
   "Feliz",
   "Casa",
   "Vaso",
-  "Lápiz",
+  "Lapiz",
   "Danza",
-  "Sonris",
+  "Sonrisa",
   "Espejo",
   "Hielo",
   "Siesta",
   "Cepillo",
-  "Almón",
   "Arroz",
-  "Giras",
+  "Girasol",
   "Diente",
   "Cielo",
-  "Cálido",
+  "Calido",
   "Abrazo"
 ]
 
@@ -32,7 +31,7 @@ export default function WordsPerMinute() {
   const handleSubmit = event => {
     event.preventDefault()
 
-    if (buffer === word) {
+    if (buffer.toLocaleLowerCase === word.toLocaleLowerCase) {
       setWord(WORDS[(Math.random() * WORDS.length) | 0])
       setCharacterCount((CharacterCount) => CharacterCount + word.length)
     }
@@ -48,19 +47,22 @@ export default function WordsPerMinute() {
     }, [time])
   
   return (
-    <div className="wpmDiv">
-      { Boolean(time) && <h1>{word}</h1> }
-      <h3>Caracteres tipeados: {CharacterCount}</h3>
-      <h3>Tiempo restante: {time}</h3>
-      {time ? (
-        <form onSubmit={handleSubmit}>
-          <input type="text" autoFocus value={buffer} onChange={(e) => setBuffer(e.target.value)}/>
-          <button type="submit">submit</button>
-        </form>
-      ) : (
-        <button onClick={() => setTime(60)}>Play</button>
-      )
-      }
-    </div>
+    <main>
+      <h1>Palabras por minuto</h1>
+      <div className="div">
+        { Boolean(time) && <h1>{word}</h1> }
+        <h3>Caracteres tipeados: {CharacterCount}</h3>
+        <h3>Tiempo restante: {time}</h3>
+        {time ? (
+          <form onSubmit={handleSubmit}>
+            <input type="text" autoFocus value={buffer} onChange={(e) => setBuffer(e.target.value)}/>
+            <button type="submit">submit</button>
+          </form>
+        ) : (
+          <button onClick={() => setTime(60)}>Play</button>
+        )
+        }
+      </div>
+    </main>
   )
 }

@@ -22,7 +22,6 @@
 
 body {
   margin: auto;
-  display: flex;
   place-items: center;
   min-width: 800px;
   min-height: 100vh;
@@ -32,11 +31,66 @@ body {
   width: 100%;
 }
 
-main {
-  padding: 1rem;
+header {
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  margin: auto;
+  position: fixed;
+  z-index: 100;
 }
 
-li {
+nav {
+  float: left;
+}
+
+.ulNav {
+  list-style: none;
+  overflow: hidden;
+}
+
+.liNav {
+  float: left;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.linkNav {
+  display: block;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* MEMOTEST */
+main {
+  padding: 1rem;
+  align-items: center;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+  padding-bottom: 25px;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.imgMemo {
+  max-width: 100%;
+  height: auto;
+}
+
+.ulMemo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 24px;
+  margin: 0 100px;
+}
+
+.liMemo {
   list-style-type: none;
   cursor: pointer;
   padding: 12px;
@@ -44,38 +98,24 @@ li {
   border-radius: 12px;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+/* WPM */
+
+/* POKEMON */
+.imgPokemon {
+  width: 512px;
+  height: 512px;
+  image-rendering: pixelated;
 }
 
-h1 {
+.div {
   display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-
-.memotestUL {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 24px;
-  margin: 0 100px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
 }
 
 input,
 button {
   font-size: 26px;
-}
-
-.wpmDiv {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  text-align: center;
-}
-
-.imgPokemon {
-  width: 512px;
-  height: 512px;
-  image-rendering: pixelated;
 }

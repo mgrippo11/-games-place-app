@@ -25,7 +25,7 @@ export default function Memotest() {
           if(selected[0].split("|")[1]===selected[1].split("|")[1]){
               setGuessed((guessed) => guessed.concat(selected))
           }
-          setTimeout(() => setSelected([]), 500)
+          setTimeout(() => setSelected([]), 700)
       }
     }, [selected])
 
@@ -36,16 +36,16 @@ export default function Memotest() {
   return (
     <main>
       <h1>Memotest</h1>
-      <ul className="memotestUL">
+      <ul className="ulMemo">
         {IMAGES.map( image => {
           const [,url] = image.split("|")
 
           return (
-            <li onClick={() => selected.length < 2 && setSelected((selected) => selected.concat(image))} key={image}>
+            <li className="liMemo" onClick={() => selected.length < 2 && setSelected((selected) => selected.concat(image))} key={image}>
               {selected.includes(image) || guessed.includes(image) ? (
-                <img src={url} alt="icon" />
+                <img className="imgMemo" src={url} alt="icon" />
               ) : (
-                <img src="https://icongr.am/octicons/code.svg?size=128&color=currentColor" alt="icon" />
+                <img className="imgMemo" src="https://icongr.am/octicons/code.svg?size=128&color=currentColor" alt="icon" />
               )}
             </li>
           )
@@ -57,7 +57,6 @@ export default function Memotest() {
             <button onClick={() => location.reload()} className=''>Volver a jugar</button>
         </div>
       }
-      <Link className='nes-btn is-warning' to="/">Volver a inicio</Link>
     </main>
   )
 }
