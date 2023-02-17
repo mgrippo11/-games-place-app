@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link } from 'react-router-dom';
 
 const IMAGES = [
   "https://icongr.am/devicon/android-original.svg?size=128&color=currentColor",
@@ -19,13 +18,19 @@ export default function Memotest() {
   const [guessed, setGuessed] = useState([])
   const [selected, setSelected] = useState([])
   const [hasWon, setHasWon] = useState(false)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
       if (selected.length === 2) {
-          if(selected[0].split("|")[1]===selected[1].split("|")[1]){
+        if(selected[0] !== selected[1]){
+          if(selected[0].split("|")[1] === selected[1].split("|")[1]){
               setGuessed((guessed) => guessed.concat(selected))
-          }
-          setTimeout(() => setSelected([]), 700)
+              const auxCont = count
+              setCount(auxCont+1)
+
+          } 
+        }
+          setTimeout(() => setSelected([]), 1000)
       }
     }, [selected])
 
@@ -35,13 +40,16 @@ export default function Memotest() {
 
   return (
     <main>
-      <h1>Memotest</h1>
+      <div className="divTitle">
+        <h1>Memotest</h1>
+        <h4>Cantidad: {count} / 10</h4>
+      </div>
       <ul className="ulMemo">
         {IMAGES.map( image => {
           const [,url] = image.split("|")
 
           return (
-            <li className="liMemo" onClick={() => selected.length < 2 && setSelected((selected) => selected.concat(image))} key={image}>
+            <li className="liMemo" onClick={() => selected.length < 2 & selected[0] !== image && setSelected((selected) => selected.concat(image))} key={image}>
               {selected.includes(image) || guessed.includes(image) ? (
                 <img className="imgMemo" src={url} alt="icon" />
               ) : (

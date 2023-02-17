@@ -30,18 +30,19 @@ export default function WordsPerMinute() {
 
   const handleSubmit = event => {
     event.preventDefault()
-
-    if (buffer.toLocaleLowerCase === word.toLocaleLowerCase) {
+    if (buffer.toLowerCase() === word.toLowerCase()) {
       setWord(WORDS[(Math.random() * WORDS.length) | 0])
       setCharacterCount((CharacterCount) => CharacterCount + word.length)
+      setBuffer("")
+      return
     }
+    setCharacterCount(CharacterCount -2)
     setBuffer("")
   }
 
     useEffect(() => {
       if (time !== 0) {
         const timeout = setTimeout(() => setTime(time -1), 1000)
-
         return () => clearTimeout(timeout)
       }
     }, [time])
@@ -51,8 +52,8 @@ export default function WordsPerMinute() {
       <h1>Palabras por minuto</h1>
       <div className="div">
         { Boolean(time) && <h1>{word}</h1> }
-        <h3>Caracteres tipeados: {CharacterCount}</h3>
-        <h3>Tiempo restante: {time}</h3>
+        <h3 style={time === 0 ? {marginTop: '100px'} : {marginTop: '0'}}>Caracteres tipeados: {CharacterCount}</h3>
+        <h4>Tiempo restante: {time}</h4>
         {time ? (
           <form onSubmit={handleSubmit}>
             <input type="text" autoFocus value={buffer} onChange={(e) => setBuffer(e.target.value)}/>
