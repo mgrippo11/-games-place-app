@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react"
 
 const IMAGES = [
-  "https://icongr.am/devicon/android-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/babel-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/chrome-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/css3-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/git-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/html5-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/javascript-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/linkedin-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/linux-original.svg?size=128&color=currentColor",
-  "https://icongr.am/devicon/react-original.svg?size=128&color=currentColor"  
+  "https://svgl.vercel.app/library/midudev.svg",
+  "https://svgl.vercel.app/library/css.svg",
+  "https://svgl.vercel.app/library/html5.svg",
+  "https://svgl.vercel.app/library/javascript.svg",
+  "https://svgl.vercel.app/library/mongodb.svg",
+  "https://svgl.vercel.app/library/linkedin.svg",
+  "https://svgl.vercel.app/library/vitejs.svg",
+  "https://svgl.vercel.app/library/vscode.svg",
+  "https://svgl.vercel.app/library/react.svg",
+  "https://svgl.vercel.app/library/github.svg"  
 ].flatMap(image => [`a|${image}`, `b|${image}`]).sort(() => Math.random() - 0.5)
 
 export default function Memotest() {
@@ -21,7 +21,7 @@ export default function Memotest() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-      if (selected.length === 2) {
+      if(selected.length === 2) {
         if(selected[0] !== selected[1]){
           if(selected[0].split("|")[1] === selected[1].split("|")[1]){
               setGuessed((guessed) => guessed.concat(selected))
@@ -53,7 +53,7 @@ export default function Memotest() {
               {selected.includes(image) || guessed.includes(image) ? (
                 <img className="imgMemo" src={url} alt="icon" />
               ) : (
-                <img className="imgMemo" src="https://icongr.am/octicons/code.svg?size=128&color=currentColor" alt="icon" />
+                <img className="imgMemo" style={{filter: 'grayscale(100%)'}} src="https://svgl.vercel.app/library/gdsc.svg" alt="icon" />
               )}
             </li>
           )

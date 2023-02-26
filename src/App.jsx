@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Memotest from "./pages/Memotest"
 import Pokemon from "./pages/Pokemon"
 import WordsPerMinute from "./pages/WordsPerMinute"
+import BlackJack from "./pages/BlackJack"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route element={<WordsPerMinute />} path="/wpm" />
           <Route element={<Pokemon />} path="/pokemon" />
           <Route element={<Home />} path="/" />
+          <Route element={<BlackJack />} path="/blackjack" />
         </Routes>
       </div>
     </div>

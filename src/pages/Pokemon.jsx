@@ -49,7 +49,7 @@ export default function Pokemon() {
   const handleSubmit = event => {
     event.preventDefault()
 
-    if (buffer.toLowerCase() === POKEMONS[pokemon].toLowerCase()) {
+    if(buffer.toLowerCase() === POKEMONS[pokemon].toLowerCase()) {
       setHasWon(true)
       setBuffer("")
       console.log("Correcto Ganaste!")

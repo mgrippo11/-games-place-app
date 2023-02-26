@@ -14,6 +14,9 @@ export default function Navbar() {
           <Link className='linkNav' to="/pokemon">Pokemon</Link>
         </li>
         <li className='liNav'>
+          <Link className='linkNav' to="/blackjack">Blak Jack</Link>
+        </li>
+        <li className='liNav'>
           <Link className='linkNav' to="/">Volver a inicio</Link>
         </li>
       </ul>
