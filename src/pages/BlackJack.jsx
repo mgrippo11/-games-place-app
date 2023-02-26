@@ -46,17 +46,17 @@ export default function BlackJack() {
     accumulateScore(selectedCard, 0)
     setPlayerDeck( arr => [...arr , selectedCard])
 
-    // setTimeout(() => {
-    //   if(scoresPlayers[0] > 21){
-    //     alert('Lo siento mucho, perdiste...')
-    //     setEndGame(true)
-    //     finishGame()
-    //   } else if(scoresPlayers[0] === 21){
-    //     alert('21, ganaste!!')
-    //     setEndGame(true)
-    //     finishGame()
-    //   }
-    // }, 500)
+    setTimeout(() => {
+      if(scoresPlayers[0] > 21){
+        alert('Lo siento mucho, perdiste...')
+        setEndGame(true)
+        finishGame()
+      } else if(scoresPlayers[0] === 21){
+        alert('21, ganaste!!')
+        setEndGame(true)
+        finishGame()
+      }
+    }, 500)
   }
 
   // SELECCIONAR CARTA ALEATOREA
@@ -86,7 +86,6 @@ export default function BlackJack() {
       console.log(card)
       selectCard()
     }
-    console.log(card)
     if(player === 0) {
       setScoresPlayers([scoresPlayers[player] = scoresPlayers[player] + cardValue(card)], 0)
     } else {
